@@ -2,6 +2,10 @@ import Foundation
 import whisper_cpp
 
 public class Whisper {
+    /// The underlying whisper_context pointer. Exposed for direct C API access
+    /// (e.g., word-level timestamps via whisper_full_get_token_data).
+    public var context: OpaquePointer { whisperContext }
+
     private let whisperContext: OpaquePointer
     private var unmanagedSelf: Unmanaged<Whisper>?
 
